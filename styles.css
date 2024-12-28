@@ -1,0 +1,128 @@
+/* General Reset */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    background: #111;
+    color: #fff;
+  }
+  
+  :root {
+    --primary: #ff007f; /* Neon pink */
+    --hover: #00ffe7;  /* Neon cyan */
+    --glass-bg: rgba(255, 255, 255, 0.1); /* Glass effect background */
+    --text-light: #ffffff;
+  }
+  
+  /* Scroll Indicator */
+  .scroll-indicator {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 5px;
+    background: linear-gradient(90deg, #ff007f, #00ffe7);
+    width: 0%;
+    z-index: 2000;
+    transition: width 0.25s ease-out;
+  }
+  
+  /* Navbar Styles */
+  .navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 1em 0;
+    backdrop-filter: blur(10px);
+    background: var(--glass-bg);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    z-index: 1000;
+    transition: all 0.4s ease;
+  }
+  
+  .navbar.scrolled {
+    background: var(--primary);
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+  }
+  
+  .menu {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .menu-item {
+    margin: 0 1.5em;
+    position: relative;
+  }
+  
+  .menu-item a {
+    text-decoration: none;
+    color: var(--text-light);
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  .menu-item a:hover {
+    color: var(--hover);
+  }
+  
+  .menu-item a::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -8px;
+    transform: translateX(-50%);
+    width: 0%;
+    height: 3px;
+    background: var(--hover);
+    transition: width 0.3s ease-in-out;
+  }
+  
+  .menu-item a:hover::after {
+    width: 100%;
+  }
+  
+  /* Section Styles */
+  .section {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+    text-align: center;
+    background: linear-gradient(135deg, #111, #333);
+    color: var(--text-light);
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  }
+  
+  #home { background: linear-gradient(135deg, #ff007f, #111); }
+  #about { background: linear-gradient(135deg, #00ffe7, #111); }
+  #services { background: linear-gradient(135deg, #ffdd00, #111); }
+  #contact { background: linear-gradient(135deg, #ff007f, #111); }
+  
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 1em;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.7);
+  }
+  
+  /* Animations */
+  @keyframes gradient-animation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  .section {
+    animation: gradient-animation 10s infinite alternate;
+  }
+  
